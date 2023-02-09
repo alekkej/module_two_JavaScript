@@ -1,4 +1,5 @@
 'use strict'
 
-let test = 10
+let test = 10;
 console.log(test);
+
