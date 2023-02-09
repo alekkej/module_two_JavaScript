@@ -1,25 +1,23 @@
 'use strict'
 
-let money = 100000;
-let profit = 'Фриланс';
-let expenses = 'Питание, Проезд, ЖКХ';
-let purpose = 60000;
-let period = 11;
+let numberOne = parseFloat(prompt('Введите первое число'));
+console.log('Первая переменная: ' + (numberOne));
 
-console.log('Месячный бюджет ' + typeof money + ' Дополнительный доход ' + typeof profit);
+let numberTwo = parseFloat(prompt('Введите второе число')) ;
+console.log('Вторая переменная: ' + (numberTwo));
 
-console.log('Длина строки ' + expenses.length + ' символов');
+// console.log(`${20 + 10}`);
+// console.log(`${20 - 10}`);
+// console.log(`${20 / 10}`);
+// console.log(`${20 * 10}`);
+// console.log(`${20 % 10}`);
 
-console.log(`Период равен ${period}-ти месяцам`);
 
-console.log(`Цель: заработать ${purpose} рублей`);
+console.log('Математические действия с введенными переменными:');
 
-let budgetOfDay = money / 30;
+console.log(`${'+ : ' + (numberOne + numberTwo).toFixed(1)}`);
+console.log(`${'- : ' + (numberOne - numberTwo).toFixed(1)}`);
+console.log(`${'/ : ' + (numberOne / numberTwo).toFixed(1)}`);
+console.log(`${'* : ' + (numberOne * numberTwo).toFixed(1)}`);
+console.log(`${'% : ' + (numberOne % numberTwo).toFixed(1)}`);
 
-console.log(Math.floor(budgetOfDay) + ' рублей/день');
-
-console.log('Дополнительное задание');
-
-console.log(expenses.toLowerCase());
-
-console.log(expenses.split(','));
