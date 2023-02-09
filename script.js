@@ -20,4 +20,3 @@ console.log(`${'- : ' + (numberOne - numberTwo).toFixed(1)}`);
 console.log(`${'/ : ' + (numberOne / numberTwo).toFixed(1)}`);
 console.log(`${'* : ' + (numberOne * numberTwo).toFixed(1)}`);
 console.log(`${'% : ' + (numberOne % numberTwo).toFixed(1)}`);
-
