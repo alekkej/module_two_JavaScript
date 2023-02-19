@@ -1,22 +1,41 @@
 'use strict'
 
-let numberOne = parseFloat(prompt('Введите первое число'));
-console.log('Первая переменная: ' + (numberOne));
-
-let numberTwo = parseFloat(prompt('Введите второе число'));
-console.log('Вторая переменная: ' + (numberTwo));
-
-// console.log(`${20 + 10}`);
-// console.log(`${20 - 10}`);
-// console.log(`${20 / 10}`);
-// console.log(`${20 * 10}`);
-// console.log(`${20 % 10}`);
+let salary = Number(prompt('Ваш месячный доход?'));
+console.log('Месячный доход ' + salary + ' руб.');
 
 
-console.log('Математические действия с введенными переменными:');
+let expenses = prompt('Перечислите возможные расходы за период через запятую');
+console.log('Категории расходов ' + expenses);
 
-console.log(`${'+ : ' + (numberOne + numberTwo).toFixed(1)}`);
-console.log(`${'- : ' + (numberOne - numberTwo).toFixed(1)}`);
-console.log(`${'/ : ' + (numberOne / numberTwo).toFixed(1)}`);
-console.log(`${'* : ' + (numberOne * numberTwo).toFixed(1)}`);
-console.log(`${'% : ' + (numberOne % numberTwo).toFixed(1)}`);
+let requiredExpenses = Number(prompt('Во сколько обойдутся обязательные статьи расходов?'));
+console.log('Обязательные расходы ' + requiredExpenses + ' руб.');
+
+
+let hasDeposit = confirm('Есть ли у Вас вклад в банке?');
+console.log(`${hasDeposit ? 'Есть вклад' : 'Вклада нет'}`);
+
+let budgetPerMonth = salary - requiredExpenses;
+console.log('Бюджет на месяц ' + budgetPerMonth + ' руб.');
+
+let budgetPerDay = Math.floor(budgetPerMonth / 30);
+console.log('Бюджет на день ' + budgetPerDay + ' руб.');
+
+let purpose = Number(prompt('Сколько нужно накопить?'));
+console.log('Нужно накопить ' + purpose + ' руб.');
+let months = Math.ceil(purpose / budgetPerMonth);
+
+if (budgetPerMonth > 0) {
+    console.log('Вы придете к цели через ' + months + ' месяца/-ев');
+} else {
+    console.log('Нет бюджета для накоплений');
+}
+
+if (budgetPerDay < 0) {
+    console.log('Что-то пошло не так');
+} else if (budgetPerDay > 6000) {
+    console.log('У Вас высокий уровень дохода');
+} else if (budgetPerDay < 3000) {
+    console.log('У Вас уровень дохода ниже среднего');
+} else {
+    console.log('У Вас средний уровень дохода');
+}
