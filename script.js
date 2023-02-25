@@ -60,6 +60,22 @@ function checkFirstNumber([firstNumber]) {
 
 console.log(arrSecond.filter(checkFirstNumber));
 
+// const arrThird = [
+//     321,
+//     124,
+//     1251,
+//     522,
+//     7623,
+//     4362,
+//     312
+// ];
+
+// function checkFirstNumber(number) {
+//     let firstNumber = number;
+
+//     while (number > 10) firstNumber /= 10;
+//     firstNumber = Math.floor(firstNumber);
+//     return firstNumber === 3 || firstNumber === 7;
 
 
 
@@ -141,4 +157,3 @@ console.log(arrSecond.filter(checkFirstNumber));
 // for (let d = 0; d < week.length; d++) {
 //     week[d] = `<i>${week[d]}</i>`;
 // }
-
