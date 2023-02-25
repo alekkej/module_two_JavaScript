@@ -1,41 +1,52 @@
 'use strict'
 
-let salary = Number(prompt('Ваш месячный доход?'));
-console.log('Месячный доход ' + salary + ' руб.');
+let date = new Date();
+let weekday = date.getDay();
+
+let week = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+
+// week[5] = `<b>${week[5]}</b>`;
+// week[6] = `<b>${week[6]}</b>`;
+
+let lineBreak = [];
+
+// if (weekday = 0) {
+//     week[6] = `<i>${week[6]}</i>`;
+// } else if (weekday = 1) { 
+//     week[0] = `<i>${week[0]}</i>`;
+// }  else if (weekday = 2) { 
+//     week[1] = `<i>${week[1]}</i>`;
+// }  else if (weekday = 3) { 
+//     week[2] = `<i>${week[2]}</i>`;
+// }  else if (weekday = 4) { 
+//     week[3] = `<i>${week[3]}</i>`;
+
+// }  else 
+
+// if (weekday = 5) { 
+//     week[4] = `<i>${week[4]}</i>`;
+// }  
+
+// else if (weekday = 6) { 
+//     week[5] = `<i>${week[5]}</i>`;
+// } 
 
 
-let expenses = prompt('Перечислите возможные расходы за период через запятую');
-console.log('Категории расходов ' + expenses);
+for (let j = 5; j < 7; j++) {
+    week[j] = `<b>${week[j]}</b>`
+};
 
-let requiredExpenses = Number(prompt('Во сколько обойдутся обязательные статьи расходов?'));
-console.log('Обязательные расходы ' + requiredExpenses + ' руб.');
+// for (let d = 0; d < week.length; d++) {
+//     week[d] = `<i>${week[d]}</i>`;
+// }
 
 
-let hasDeposit = confirm('Есть ли у Вас вклад в банке?');
-console.log(`${hasDeposit ? 'Есть вклад' : 'Вклада нет'}`);
+for (let i = 0; i < week.length; i++) {
+    lineBreak = lineBreak + week[i] + '<br \/>'
+};
 
-let budgetPerMonth = salary - requiredExpenses;
-console.log('Бюджет на месяц ' + budgetPerMonth + ' руб.');
 
-let budgetPerDay = Math.floor(budgetPerMonth / 30);
-console.log('Бюджет на день ' + budgetPerDay + ' руб.');
-
-let purpose = Number(prompt('Сколько нужно накопить?'));
-console.log('Нужно накопить ' + purpose + ' руб.');
-let months = Math.ceil(purpose / budgetPerMonth);
-
-if (budgetPerMonth > 0) {
-    console.log('Вы придете к цели через ' + months + ' месяца/-ев');
-} else {
-    console.log('Нет бюджета для накоплений');
-}
-
-if (budgetPerDay < 0) {
-    console.log('Что-то пошло не так');
-} else if (budgetPerDay > 6000) {
-    console.log('У Вас высокий уровень дохода');
-} else if (budgetPerDay < 3000) {
-    console.log('У Вас уровень дохода ниже среднего');
-} else {
-    console.log('У Вас средний уровень дохода');
-}
+console.log(lineBreak);
+document.write(lineBreak);
+document.write(date);
+document.write(' ' + weekday);
