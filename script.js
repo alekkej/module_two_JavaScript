@@ -7,26 +7,58 @@ const days = [
     'Среда',
     'Четверг',
     'Пятница',
-    'Суббота'    
+    'Суббота'
 ]
-
+const weekendDayIndex = [0, 6];
 const currentDayIndex = new Date().getDay();
 const currentDay = days[currentDayIndex];
 
 // console.log(Date());
 // console.log(currentDayIndex);
 
-console.log(`Текущий день: ${currentDay}`);
+// console.log(`Текущий день: ${currentDay}`);
 
 function printDay(index) {
-    document.writeIn(days[index])
+    const textStyle = `text ${currentDayIndex === index ? 'italic' : ''} ${weekendDayIndex.includes(index) ? 'bold' : ''}`
+    document.write(`<div class='${textStyle}'>${days[index]}</div>`)
 }
 
 for (let i = 0; i < days.length; i++) {
     printDay(i);
 }
 
+const arrFirst = [
+    '321',
+    '124',
+    '1251',
+    '522',
+    '7623',
+    '4362',
+    '312'
+];
 
+arrFirst.forEach((item) => {
+    if (item.startsWith('3') || item.startsWith('7')) {
+        console.log(item);
+    }
+});
+
+
+const arrSecond = [
+    '721',
+    '124',
+    '7251',
+    '322',
+    '4623',
+    '4362',
+    '612'
+];
+
+function checkFirstNumber([firstNumber]) {
+    return firstNumber === '3' || firstNumber === '7'
+};
+
+console.log(arrSecond.filter(checkFirstNumber));
 
 
 
@@ -87,24 +119,24 @@ for (let i = 0; i < days.length; i++) {
 
 // if (weekday = 0) {
 //     week[6] = `<i>${week[6]}</i>`;
-// } else if (weekday = 1) { 
+// } else if (weekday = 1) {
 //     week[0] = `<i>${week[0]}</i>`;
-// }  else if (weekday = 2) { 
+// }  else if (weekday = 2) {
 //     week[1] = `<i>${week[1]}</i>`;
-// }  else if (weekday = 3) { 
+// }  else if (weekday = 3) {
 //     week[2] = `<i>${week[2]}</i>`;
-// }  else if (weekday = 4) { 
+// }  else if (weekday = 4) {
 //     week[3] = `<i>${week[3]}</i>`;
 
-// }  else 
+// }  else
 
-// if (weekday = 5) { 
+// if (weekday = 5) {
 //     week[4] = `<i>${week[4]}</i>`;
-// }  
+// }
 
-// else if (weekday = 6) { 
+// else if (weekday = 6) {
 //     week[5] = `<i>${week[5]}</i>`;
-// } 
+// }
 
 // for (let d = 0; d < week.length; d++) {
 //     week[d] = `<i>${week[d]}</i>`;
