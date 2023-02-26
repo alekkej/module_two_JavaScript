@@ -1,159 +1,86 @@
 'use strict'
 
-const days = [
-    'Воскреснье',
-    'Понедельник',
-    'Вторник',
-    'Среда',
-    'Четверг',
-    'Пятница',
-    'Суббота'
-]
-const weekendDayIndex = [0, 6];
-const currentDayIndex = new Date().getDay();
-const currentDay = days[currentDayIndex];
 
-// console.log(Date());
-// console.log(currentDayIndex);
+let salary = Number(prompt('Ваш месячный доход?'));
+// console.log('Месячный доход ' + salary + ' руб.');
 
-// console.log(`Текущий день: ${currentDay}`);
+let profit = (prompt('Дополнительные источники заработка через запятую'));
+// console.log(`Дополнительные источники заработка: ${profit}`);
 
-function printDay(index) {
-    const textStyle = `text ${currentDayIndex === index ? 'italic' : ''} ${weekendDayIndex.includes(index) ? 'bold' : ''}`
-    document.write(`<div class='${textStyle}'>${days[index]}</div>`)
+let extraMoney = Number(prompt(`Возможный доход из дополнительных источников: ${profit}`));
+// console.log(`Дополнительный доход: ${extraMoney}`);
+
+let expenses = prompt('Перечислите возможные расходы за период через запятую');
+// console.log('Категории расходов ' + expenses);
+
+let requiredExpenses = Number(prompt('Во сколько обойдутся обязательные статьи расходов?'));
+// console.log('Обязательные расходы ' + requiredExpens1es + ' руб.');
+
+
+
+let hasDeposit = confirm('Есть ли у Вас вклад в банке?');
+// console.log(`${hasDeposit ? 'Есть вклад' : 'Вклада нет'}`);
+
+// let budgetPerMonth = salary - requiredExpenses;
+// console.log('Бюджет на месяц ' + budgetPerMonth + ' руб.');
+let accumulatedIncome = []
+
+const getAccumulatedIncome = () => {
+    accumulatedIncome = Number((salary + extraMoney) - requiredExpenses)
 }
 
-for (let i = 0; i < days.length; i++) {
-    printDay(i);
+getAccumulatedIncome()
+console.log('Накопления за месяц: ' + accumulatedIncome + ' руб.');
+
+let budgetPerDay = Math.floor(accumulatedIncome / 30);
+// console.log('Бюджет на день ' + budgetPerDay + ' руб.');
+
+let purpose = Number(prompt('Сколько нужно накопить?'));
+// console.log('Нужно накопить ' + purpose + ' руб.');
+let months = Math.ceil(purpose / accumulatedIncome);
+
+
+
+const getTargetMonth = () => {
+    return purpose / accumulatedIncome
+    // if (accumulatedIncome > 0) {
+    //     console.log('Вы придете к цели через ' + months + ' месяца/-ев');
+    // } else {
+    //     console.log('Нет бюджета для накоплений');
+    // }
+    
+    // if (budgetPerDay < 0) {
+    //     console.log('Что-то пошло не так');
+    // } else if (budgetPerDay > 6000) {
+    //     console.log('У Вас высокий уровень дохода');
+    // } else if (budgetPerDay < 3000) {
+    //     console.log('У Вас уровень дохода ниже среднего');
+    // } else {
+    //     console.log('У Вас средний уровень дохода');
+    // } 
+    // return
 }
 
-const arrFirst = [
-    '321',
-    '124',
-    '1251',
-    '522',
-    '7623',
-    '4362',
-    '312'
-];
+getTargetMonth()
 
-arrFirst.forEach((item) => {
-    if (item.startsWith('3') || item.startsWith('7')) {
-        console.log(item);
-    }
-});
-
-
-const arrSecond = [
-    '721',
-    '124',
-    '7251',
-    '322',
-    '4623',
-    '4362',
-    '612'
-];
-
-function checkFirstNumber([firstNumber]) {
-    return firstNumber === '3' || firstNumber === '7'
-};
-
-console.log(arrSecond.filter(checkFirstNumber));
-
-// const arrThird = [
-//     321,
-//     124,
-//     1251,
-//     522,
-//     7623,
-//     4362,
-//     312
-// ];
-
-// function checkFirstNumber(number) {
-//     let firstNumber = number;
-
-//     while (number > 10) firstNumber /= 10;
-//     firstNumber = Math.floor(firstNumber);
-//     return firstNumber === 3 || firstNumber === 7;
+console.log(`Ваш бюджет на месяц с учетом ваших расходов составляет:  ${accumulatedIncome}`);
+console.log(`Ваша цель накопить ${purpose} руб. с учетом всех ваших расходов будет достигнута через ${getTargetMonth()} месяца`);
+console.log('Дневной бюджет', budgetPerDay);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let date = new Date();
-// let weekday = date.getDay();
-
-// let week = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
-
-// let lineBreak = [];
-
-// for (let j = 5; j < 7; j++) {
-//     week[j] = `<b>${week[j]}</b>`
-// };
-
-
-// for (let i = 0; i < week.length; i++) {
-//     lineBreak = lineBreak + week[i] + '<br \/>'
-// };
-
-// console.log(lineBreak);
-// document.write(lineBreak);
-// document.write(date);
-// document.write(' ' + weekday);
-
-// week[5] = `<b>${week[5]}</b>`;
-// week[6] = `<b>${week[6]}</b>`;
-
-// if (weekday = 0) {
-//     week[6] = `<i>${week[6]}</i>`;
-// } else if (weekday = 1) {
-//     week[0] = `<i>${week[0]}</i>`;
-// }  else if (weekday = 2) {
-//     week[1] = `<i>${week[1]}</i>`;
-// }  else if (weekday = 3) {
-//     week[2] = `<i>${week[2]}</i>`;
-// }  else if (weekday = 4) {
-//     week[3] = `<i>${week[3]}</i>`;
-
-// }  else
-
-// if (weekday = 5) {
-//     week[4] = `<i>${week[4]}</i>`;
+// if (accumulatedIncome > 0) {
+//     console.log('Вы придете к цели через ' + months + ' месяца/-ев');
+// } else {
+//     console.log('Нет бюджета для накоплений');
 // }
 
-// else if (weekday = 6) {
-//     week[5] = `<i>${week[5]}</i>`;
-// }
-
-// for (let d = 0; d < week.length; d++) {
-//     week[d] = `<i>${week[d]}</i>`;
+// if (budgetPerDay < 0) {
+//     console.log('Что-то пошло не так');
+// } else if (budgetPerDay > 6000) {
+//     console.log('У Вас высокий уровень дохода');
+// } else if (budgetPerDay < 3000) {
+//     console.log('У Вас уровень дохода ниже среднего');
+// } else {
+//     console.log('У Вас средний уровень дохода');
 // }
